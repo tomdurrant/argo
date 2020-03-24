@@ -9,7 +9,7 @@ GIT_TREE_STATE         = $(shell if [ -z "`git status --porcelain`" ]; then echo
 export DOCKER_BUILDKIT = 1
 
 # docker image publishing options
-IMAGE_NAMESPACE       ?= argoproj
+IMAGE_NAMESPACE       ?= tdurrant
 
 # The rules for what version are, in order of precedence
 # 1. If anything passed at the command line (e.g. make release VERSION=...)
@@ -155,7 +155,8 @@ ifeq ($(K3D),true)
 endif
 
 .PHONY: clis
-clis: dist/argo-linux-amd64 dist/argo-linux-ppc64le dist/argo-linux-s390x dist/argo-darwin-amd64 dist/argo-windows-amd64 cli-image
+#clis: dist/argo-linux-amd64 dist/argo-linux-ppc64le dist/argo-linux-s390x dist/argo-darwin-amd64 dist/argo-windows-amd64 cli-image
+clis: dist/argo-linux-amd64 cli-image
 
 # controller
 
